@@ -30,29 +30,33 @@ Server: Werkzeug/2.2.2 Python/3.10.8
 
 ## Get container info
 
-`GET /containers/<container_id>`
+`GET /container/<container_id>`
 
 Response
+using `httpie`
 
+```http
+http 127.0.0.1:5000/container/9b
 ```
-HTTP/1.1 405 METHOD NOT ALLOWED
-Allow: GET, HEAD, OPTIONS
+```
 Connection: close
-Content-Length: 153
-Content-Type: text/html; charset=utf-8
-Date: Sun, 08 Jan 2023 20:49:21 GMT
+Content-Length: 247
+Content-Type: application/json
+Date: Sun, 08 Jan 2023 20:50:29 GMT
 Server: Werkzeug/2.2.2 Python/3.10.8
-        },
-        {
-            "id": "c6110b8c1922ce94046318581ca67f754f02ad58cd16a084c8fc826b50d7c843"
-        },
-        {
-            "id": "9b0ca4b2513daba9ae59a4ea36c9293628dbbe236eec11cbe5d8bfa582da5f73"
-        },
-        {
-            "id": "d92ca7846eb0b61e67870dc9235d04548cd2d3d95903f6cda20667e8cd4ee4d2"
-        }
-    ]
+
+{
+    "id": "9b0ca4b2513daba9ae59a4ea36c9293628dbbe236eec11cbe5d8bfa582da5f73",
+    "name": "magical_hofstadter",
+    "port": {
+        "8128/tcp": [
+            {
+                "HostIp": "0.0.0.0",
+                "HostPort": "8001"
+            }
+        ]
+    },
+    "status": "running"
 }
 ```
 
